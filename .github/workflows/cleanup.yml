@@ -1,0 +1,41 @@
+name: cleanup
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      deployments: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: clean deployments
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ids=$(gh api repos/${{ github.repository }}/deployments --jq '.[].id')
+          for id in $ids; do
+            gh api -X POST repos/${{ github.repository }}/deployments/$id/statuses -f state='inactive'
+            gh api -X DELETE repos/${{ github.repository }}/deployments/$id
+          done
+      - name: clean runs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ids=$(gh run list --limit 100 --json databaseId -q '.[].databaseId' | grep -v ${{ github.run_id }})
+          for id in $ids; do
+            gh run delete $id || true
+          done
+      - name: update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.com"
+          git checkout --orphan temp-build
+          git add .
+          git commit -m "update: $(date +'%Y-%m-%d %H:%M')"
+          git branch -M main
+          git push origin main --force

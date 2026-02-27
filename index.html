@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IsoLeyN - Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #000000;
+            --accent-color: #fffc4f;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 252, 79, 0.4);
+            --text-main: #f9f9f9;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Comfortaa', cursive;
+            margin: 0;
+            padding: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 80%;
+            max-width: none;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+
+        h2 {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 30px 0 15px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255, 252, 79, 0.05);
+            border: 1px solid var(--accent-color);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .card:hover {
+            background: rgba(255, 252, 79, 0.12);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 252, 79, 0.2);
+        }
+
+        .card.card-no-link {
+            background: var(--glass-bg);
+            border: 1px solid rgba(255, 252, 79, 0.15);
+            opacity: 0.8;
+            cursor: default;
+        }
+
+        .card.card-no-link:hover {
+            opacity: 1;
+            background: rgba(255, 252, 79, 0.05);
+            box-shadow: none;
+            transform: none;
+        }
+
+        .platform {
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .username {
+            color: var(--text-main);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Socials</h2>
+    <div class="grid">
+        <a href="https://t.me/IsoLeyN" target="_blank" class="card">
+            <span class="platform">Telegram</span>
+            <span class="username">@IsoLeyN</span>
+        </a>
+        <a href="https://youtube.com/@IsoLeyN_" target="_blank" class="card">
+            <span class="platform">YouTube</span>
+            <span class="username">@IsoLeyN_</span>
+        </a>
+        <a href="https://www.twitch.tv/isoleyn_" target="_blank" class="card">
+            <span class="platform">Twitch</span>
+            <span class="username">@IsoLeyN_</span>
+        </a>
+        <a href="https://x.com/IsoLeyNak" target="_blank" class="card">
+            <span class="platform">X</span>
+            <span class="username">@IsoLeyNaK</span>
+        </a>
+        <a href="https://discord.com/users/962407973806813236" target="_blank" class="card card-no-link">
+            <span class="platform">Discord</span>
+            <span class="username">@IsoLeyN</span>
+        </a>
+    </div>
+
+    <h2>Gaming</h2>
+    <div class="grid">
+        <a href="https://steamcommunity.com/id/IsoLeyNak" target="_blank" class="card">
+            <span class="platform">Steam</span>
+            <span class="username">@IsoLeyNak</span>
+        </a>
+        <a href="https://www.riotgames.com" target="_blank" class="card card-no-link">
+            <span class="platform">Riot Games</span>
+            <span class="username">@IsoLeyN#FURRY</span>
+        </a>
+        <a href="https://www.epicgames.com" target="_blank" class="card card-no-link">
+            <span class="platform">Epic Games</span>
+            <span class="username">@IsoLeyN_</span>
+        </a>
+        <a href="https://www.xbox.com/en-US/play/user/IsoLeyN" target="_blank" class="card">
+            <span class="platform">Xbox</span>
+            <span class="username">@IsoLeyN</span>
+        </a>
+    </div>
+
+    <h2>Development</h2>
+    <div class="grid">
+        <a href="https://github.com/IsoLeyN" target="_blank" class="card">
+            <span class="platform">GitHub</span>
+            <span class="username">@IsoLeyN</span>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
